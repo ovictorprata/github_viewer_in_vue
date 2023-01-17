@@ -1,0 +1,7 @@
+name: qualquer coisa
+on: [push]
+jobs:
+  umjobqualquer:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello world
