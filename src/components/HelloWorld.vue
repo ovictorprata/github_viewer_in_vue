@@ -112,7 +112,7 @@
       ],
       importantLinks: [
         {
-          text: 'Documentation',
+          text: 'Documenteishon',
           href: 'https://vuetifyjs.com',
         },
         {
