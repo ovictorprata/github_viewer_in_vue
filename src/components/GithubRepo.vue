@@ -12,7 +12,7 @@
 
 <script>
 
-  let _debounceUser = null
+  import {debouncerdecorator} from '@/helpers/debouncer.js'
 
   export default {
     data: () => ({
@@ -22,17 +22,10 @@
       userloading: false,
     }),
     methods: {
-      procuraUsuariosGithubDebounced(){
-        if (_debounceUser) {
-          clearTimeout(_debounceUser)
-        }
-        _debounceUser = setTimeout(() => {
-          this.procuraUsuariosGithub()
-          _debounceUser = null
-        }, 500)
-      },
-      procuraUsuariosGithub(){
+      procuraUsuariosGithub: debouncerdecorator(function () { // atenção: não use ()=>{} aqui. vai quebrar o decorator
+        debugger
         console.log('faz de conta que eu perguntei pro github: ' + this.usersearch)
+        this.userloading = true
         setTimeout(() => {
           this.userlist = [
             {login: 'joao'},
@@ -40,12 +33,11 @@
           ]
           this.userloading = false
         }, 1000)
-      }
+      }, 500)
     },
     watch: {
       usersearch () {
-        this.userloading = true
-        this.procuraUsuariosGithubDebounced()
+        this.procuraUsuariosGithub()
       }
     }
   }
