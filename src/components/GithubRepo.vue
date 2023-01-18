@@ -23,12 +23,11 @@
       userloading: false,
     }),
     methods: {
-      procuraUsuariosGithub: debouncerdecorator(function () { // atenção: não use ()=>{} aqui. vai quebrar o decorator
+      procuraUsuariosGithub: debouncerdecorator(async function () { // atenção: não use ()=>{} aqui. vai quebrar o decorator
         this.userloading = true
-        api.search_users(this.usersearch).then(data => {
-          this.userlist = data.items
-          this.userloading = false
-        })
+        const data = await api.search_users(this.usersearch)
+        this.userlist = data.items
+        this.userloading = false
       }, 500),
     },
     watch: {
