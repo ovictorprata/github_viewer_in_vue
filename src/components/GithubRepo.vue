@@ -49,7 +49,6 @@
         this.userloading = false
       }, 500),
       async listaRepositorios(){
-        debugger
         this.repoloading = true
         const data = await api.lista_repos(this.user)
         this.repolist = data
@@ -61,7 +60,9 @@
         this.procuraUsuariosGithub()
       },
       user() {
-        this.listaRepositorios()
+        if(this.user){
+          this.listaRepositorios()
+        }
       },
       repo () {
         console.log(this.repo)
