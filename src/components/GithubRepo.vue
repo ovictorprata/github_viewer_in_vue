@@ -65,7 +65,7 @@
         }
       },
       repo () {
-        console.log(this.repo)
+        this.$emit('reposelected', this.repo)
       }
     }
   }

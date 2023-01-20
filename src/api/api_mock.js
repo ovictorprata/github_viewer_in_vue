@@ -19,8 +19,8 @@ export const api = {
     },
     async lista_repos(username){
         const result = [
-            {name: 'Django', owner: 'joao'},
-            {name: 'Vue.js', owner: 'jose'},
+            {name: 'Django', owner: {login: 'joao'}},
+            {name: 'Vue.js', owner: {login: 'jose'}},
         ]
         return later(result)
     }
