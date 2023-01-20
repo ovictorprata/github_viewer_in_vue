@@ -29,7 +29,7 @@
 <script>
 
   import {debouncerdecorator} from '@/helpers/debouncer.js'
-  import {api} from '@/api/api.js'
+  import {api} from '~api'
 
   export default {
     data: () => ({
