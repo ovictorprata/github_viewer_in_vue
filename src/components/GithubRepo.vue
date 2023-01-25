@@ -9,6 +9,7 @@
         :loading="userloading"
         :search-input.sync="usersearch"
         item-text="login"
+        clearable
       />
       </v-col>
       <v-col cols="6">
@@ -20,6 +21,7 @@
           label="Selecione o repositorio"
           return-object
           single-line
+          clearable
         ></v-select>
       </v-col>
     </v-row>

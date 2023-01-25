@@ -2,21 +2,31 @@
     <div>
       <v-row>
         <v-col cols="12">
+        <template>
+          <v-data-table
+            :headers="headers"
+            :items="contents"
+            :items-per-page="10"
+            class="elevation-1"
+          ></v-data-table>
+        </template>
             <v-simple-table>
               <template v-slot:default>
                 <thead>
+                <v-banner
+                  v-if="actualPath"
+                >
+                  📂 {{actualPath}}
+                </v-banner>
                   <tr>
                     <th class="text-left">Content</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="(content, i) in contents" :key="content.name + i">
-                        <v-icon v-if="content.type == 'file'">
-                          mdi-file
-                        </v-icon>
-                        <v-icon v-else @click="openPath(content)">
-                          mdi-folder
-                        </v-icon>
+                    <td>
+                          
+                    </td>
                     <td @click='openPath(content.path)'>
                     {{ content.name }}
                     </td>
@@ -46,6 +56,14 @@
         loading: false,
         temmais: false,
         actualPath: null,
+        headers: [
+        {
+          text: 'File',
+          align: 'start',
+          sortable: false,
+          value: 'name',
+        },
+      ],
       }),
       methods: {
         async listContents(){
@@ -55,18 +73,22 @@
           this.loading = false
         },
         async openPath(path){
-          this.loading = true
+          let gitPath = []
           const maiscontents = await api.lista_contents(this.repo.owner.login, this.repo.name, path)
           this.contents = maiscontents
-          this.loading = false
+          gitPath.push(this.repo.owner.login, this.repo.name, path)
+          this.actualPath = gitPath.join('/')
         }
       },
       watch: {
         repo(){
-          this.contents = []
-          this.listContents()   
+          console.log('repo watch!')
+          if(this.repo){
+            this.contents = []
+            this.listContents()   
           }
         }
       }
+    }
   </script>
   
