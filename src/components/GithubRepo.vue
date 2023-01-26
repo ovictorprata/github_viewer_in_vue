@@ -29,7 +29,6 @@
 </template>
 
 <script>
-
   import {debouncerdecorator} from '@/helpers/debouncer.js'
   import {api} from '~api'
 
