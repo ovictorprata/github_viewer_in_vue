@@ -27,6 +27,13 @@
                     <td>
                           
                     </td>
+
+                    <v-icon v-if="content.type == 'file'">
+                        mdi-file
+                    </v-icon>
+                    <v-icon v-else @click="openPath(content.path)">
+                        mdi-folder
+                    </v-icon>
                     <td @click='openPath(content.path)'>
                     {{ content.name }}
                     </td>
