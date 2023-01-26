@@ -32,7 +32,7 @@
                         mdi-file
                     </v-icon>
                     <v-icon v-else @click="openPath(content.path)">
-                        mdi-folder 
+                        mdi-folder dsadas
                     </v-icon>
                     <td @click='openPath(content.path)'>
                     {{ content.name }}
