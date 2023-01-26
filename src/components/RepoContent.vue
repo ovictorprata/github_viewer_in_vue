@@ -2,45 +2,33 @@
     <div>
       <v-row>
         <v-col cols="12">
-        <template>
-          <v-data-table
-            :headers="headers"
-            :items="contents"
-            :items-per-page="10"
-            class="elevation-1"
-          ></v-data-table>
-        </template>
-            <v-simple-table>
-              <template v-slot:default>
-                <thead>
-                <v-banner
-                  v-if="actualPath"
-                >
-                  📂 {{actualPath}}
-                </v-banner>
-                  <tr>
-                    <th class="text-left">Content</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(content, i) in contents" :key="content.name + i">
-                    <td>
-                          
-                    </td>
-
-                    <v-icon v-if="content.type == 'file'">
-                        mdi-file
-                    </v-icon>
-                    <v-icon v-else @click="openPath(content.path)">
-                        mdi-folder 
-                    </v-icon>
-                    <td @click='openPath(content.path)'>
-                    {{ content.name }}
-                    </td>
-                  </tr>
-                </tbody>
-              </template>
-          </v-simple-table>
+          <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  Name
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr 
+                v-for="(content, i) in contents" 
+                :key="content.name + i"
+              >
+                <td>
+                  <v-icon v-if="content.type == 'file'">
+                      mdi-file
+                  </v-icon>
+                  <v-icon v-else @click="openPath(content.path)">
+                      mdi-folder 
+                  </v-icon>
+                {{ content.name }}
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
         </v-col>
       </v-row>
       <v-row>
