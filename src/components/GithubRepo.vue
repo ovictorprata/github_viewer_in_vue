@@ -1,6 +1,5 @@
 <template>
   <div>
-  <h1>asdas</h1>
     <v-row class="text-center">
       <v-col cols="6">
         <v-autocomplete
