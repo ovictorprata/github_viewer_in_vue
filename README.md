@@ -1,4 +1,4 @@
-# [github_vuewer](https://ovictorprata.github.io/github_viewer_in_vue/)
+# Deploy do projeto [aqui](https://ovictorprata.github.io/github_viewer_in_vue/)
 
 ## Project setup
 ```
