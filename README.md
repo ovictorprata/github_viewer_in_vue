@@ -1,6 +1,13 @@
-# Deploy do projeto [aqui](https://ovictorprata.github.io/github_viewer_in_vue/)
+# Github Viewer Repositories
 
-## Project setup
+<img src="https://cdn-icons-png.flaticon.com/512/3176/3176396.png"  width="20" height="20"> This project searches contents of all repositories from some user. 
+
+<img src="https://img.icons8.com/color/256/vue-js.png"  width="20" height="20"> It was developed in Vuejs. 
+
+
+<img src="https://cdn-icons-png.flaticon.com/512/4334/4334058.png"  width="20" height="20">  Deploy on GH Pages [here](https://ovictorprata.github.io/github_viewer_in_vue/)
+
+## Local project setup
 ```
 npm install
 ```
